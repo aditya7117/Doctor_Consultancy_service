@@ -1,0 +1,93 @@
+<h3 style="text-align: center; color: green">Available Doctors</h3>
+<hr />
+<div class="row" id="c1">
+  <div
+    class="col-sm-6 col-lg-4 col-md-6"
+    style="background-color: grey; margin-left: 30px"
+  >
+    <h3 style="color: white">Doctor Name : {{ doctor.name }}</h3>
+    <h3 style="color: white">Hospital Name : {{ doctor.hospital }}</h3>
+    <h3 style="color: white">Department : {{ doctor.department }}</h3>
+    <h3 style="color: white">Doctor Fee : {{ doctor.fee }}</h3>
+    <h3 style="color: white">Fee Validity : {{ doctor.feevalidity }} days</h3>
+    <h3 style="color: white">Qualification : {{ doctor.qualification }}</h3>
+    <h3 style="color: white">Specialization : {{ doctor.specialization }}</h3>
+    <h3 style="color: white">Schedule Days : {{ doctor.scheduleday }}</h3>
+    <h3 style="color: white">Schedule Time : {{ doctor.scheduletime }}</h3>
+    <h3 style="color: white">Phone : {{ doctor.phone }}</h3>
+    <button type="button" (click)="Book()">Book Appointment</button>
+  </div>
+  <div class="col-sm-6 col-lg-6 col-md-6">
+    <div id="main">
+      <div *ngIf="BookShow">
+        <form
+          [formGroup]="paymentForm"
+          class="text-center border border-light p-5"
+          style="max-width: 400px"
+        >
+          <p class="h4 mb-4">Pay Doctor Fee</p>
+          <input
+            type="text"
+            id="appointmentFormDoctorName"
+            class="form-control mb-4"
+            formControlName="doctorname"
+            readonly
+          />
+          <input
+            type="text"
+            id="appointmentFormdoctorId"
+            class="form-control mb-4"
+            formControlName="doctorId"
+            hidden
+          />
+          <input
+            type="date"
+            id="defaultRegisterFormDate"
+            class="form-control mb-4"
+            formControlName="dp"
+            placeholder="chose date"
+            (change)="checkDob()"
+          />
+          <button
+            type="button"
+            class="btn btn-info my-4 btn-block"
+            (click)="checkAvalable()"
+          >
+            Availability
+          </button>
+          <p style="color: red">{{ notavail }}</p>
+          <p style="color: green">{{ avail }}</p>
+          <input
+            type="text"
+            id="defaultRegisterFormName"
+            class="form-control mb-4"
+            formControlName="name"
+            placeholder="Enter Name*"
+          />
+          <input
+            type="text"
+            id="defaultRegisterFormAmount"
+            class="form-control mb-4"
+            formControlName="amount"
+            placeholder="Enter Amount*"
+            readonly
+          />
+          <input
+            type="text"
+            id="defaultRegisterFormEmail"
+            class="form-control mb-4"
+            formControlName="email"
+            placeholder="Enter Email*"
+          />
+          <button
+            class="btn btn-info my-4 btn-block"
+            type="submit"
+            (click)="buyRazorPay(paymentForm)"
+          >
+            pay
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

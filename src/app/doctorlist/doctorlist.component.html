@@ -1,0 +1,26 @@
+<form [formGroup]="doctorFilterForm" >
+  <mat-form-field class="full-width" appearance="fill" style="margin-left: 10px;">
+    <mat-label>Specialization</mat-label>
+    <mat-select matInput required formControlName="specialization">
+      <mat-option value="General Physician">General Physician</mat-option>
+      <mat-option value="Gynecologist">Gynecologist</mat-option>
+      <mat-option value="Psychiatrist">Psychiatrist</mat-option>
+      <mat-option value="Neurologist">Neurologist</mat-option>
+      <mat-option value="Skin">Skin</mat-option>
+      
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" (click)="onFilter()">Get</button>
+  <button mat-raised-button color="primary" type="submit" (click)="clearFilter()">Clear</button>
+
+</form>
+<h3 style="text-align: center;color: green;">Available Doctors</h3>
+<hr>
+<div id="c1" style="overflow: auto;max-height: 450px; background: blue">
+    <ul class="heroes">
+        <li *ngFor="let hero of Hero;let i=index;" (click)="getDoctor(i)" style="height: 40px;background-color: white; margin-bottom: 5px;">
+          <p style="margin-left: 30px;cursor: pointer;">{{hero.name}} </p>
+        </li>
+      </ul>
+</div>

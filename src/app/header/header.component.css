@@ -1,0 +1,18 @@
+.spacer{
+    flex: 1 1 auto;
+    
+}
+.no-hover-effect{
+    text-decoration: none;
+    color: chartreuse;
+    
+}
+[mat-button]:not(:hover) {
+    color: inherit;
+  }
+
+.no-hover{
+    text-decoration: none;
+    color:blanchedalmond;
+    
+}

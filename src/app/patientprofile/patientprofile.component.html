@@ -1,0 +1,137 @@
+<mat-card>
+  <mat-card-content>
+    <hr>
+    <div class="header">
+      <h2>Patient Profile</h2>
+    </div>
+    <hr>
+    <form [formGroup]="patientprofileForm" >
+
+      <div class="email-input">
+        
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput required/>
+              <mat-error *ngIf="patientprofileForm.get('name').errors?.required">
+                Required Name 
+              </mat-error>
+              <mat-error *ngIf="patientprofileForm.get('name').errors?.pattern">
+                Please Enter Only Alphabets
+              </mat-error>
+                      
+        </mat-form-field>
+          
+        <mat-form-field class="full-width" appearance="fill"  style="margin-left: 10px;">
+          <mat-label>Choose DOB</mat-label>
+          <input formControlName="age" matInput [matDatepicker]="picker"  required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        
+          <mat-error *ngIf="patientprofileForm.get('age').errors?.required">
+            Required DOB. 
+          </mat-error>
+        </mat-form-field>
+                
+          </div>
+              <div class="email-input">
+                  <mat-form-field class="full-width" appearance="fill">
+                      <mat-label>Select User Type</mat-label>
+                      <mat-select matInput required formControlName="userType">
+                        <mat-option value="Doctor">Doctor</mat-option>
+                        <mat-option value="Patient">Patient</mat-option>
+                        
+                      </mat-select>
+                      
+                      
+                    </mat-form-field>
+                
+             
+
+              
+                <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+                  <mat-label>Address</mat-label>
+                  <input formControlName="address" matInput required/>
+                  <mat-error *ngIf="patientprofileForm.get('address').errors?.required">
+                    Required Address
+                  </mat-error>
+                             
+                </mat-form-field>
+              </div>
+
+
+    
+              <div class="email-input">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Phone Number</mat-label>
+                  <input formControlName="phone" matInput required/>
+                  <mat-error *ngIf="patientprofileForm.get('phone').errors?.required">
+                    Required Phone Number.
+                  </mat-error>
+                  <mat-error *ngIf="patientprofileForm.get('phone').errors?.pattern">
+                    Please Enter Valid number.
+                  </mat-error>
+                </mat-form-field>
+              
+        
+        <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+          <mat-label>Weight in Kg</mat-label>
+          <input formControlName="weight" matInput required/>
+          <mat-error *ngIf="patientprofileForm.get('weight').errors?.required">
+            Required Weight.
+          </mat-error>
+          <mat-error *ngIf="patientprofileForm.get('weight').errors?.pattern">
+            Please Enter only numbers.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      
+      <div class="email-input">
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Blood Group</mat-label>
+            <mat-select matInput required formControlName="bloodGroup">
+              <mat-option value="A+">A+</mat-option>
+              <mat-option value="A-">A-</mat-option>
+              <mat-option value="B+">B+</mat-option>
+              <mat-option value="B-">B-</mat-option>
+              <mat-option value="O+">O+</mat-option>
+              <mat-option value="O-">O-</mat-option>
+              <mat-option value="AB+">AB+</mat-option>
+              <mat-option value="AB-">AB-</mat-option>
+              
+            </mat-select>
+            
+            
+          </mat-form-field>
+      
+   
+        
+      <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+        <mat-label>Regular Disease</mat-label>
+        <input formControlName="disease" matInput required/>
+        <mat-error *ngIf="patientprofileForm.get('disease').errors?.required">
+          Type NA if Don't have any disease.
+        </mat-error>
+      
+      </mat-form-field>
+    </div>
+
+    <div class="email-input">
+        
+      <mat-form-field class="area-width" appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" ></textarea>
+       
+      
+      </mat-form-field>
+    </div>
+
+    
+
+    
+    <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Submit</button>
+    <hr>
+    <p style="color: red;">{{err}}</p>
+  </form>
+
+  </mat-card-content>
+</mat-card>

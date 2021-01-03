@@ -1,0 +1,10 @@
+.test:after {
+    content: '\2807';
+    font-size: 30px;
+    }
+.btest {
+    border: none;
+    background-color: white;
+    margin-top: 4px;
+    text-align: right;
+}

@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-content>
+        <hr>
+        <div class="header">
+            Varify OTP
+        </div>
+        <hr>
+        <form [formGroup]="otpForm" >
+            <p style="color: green;">Verify your OTP, it has been sent to you.</p>
+            <div class="email-input">
+            <mat-form-field class="full-width" appearance="outline">
+            <mat-label>OTP</mat-label>
+            <input formControlName="otp" placeholder="Enter OTP" matInput required/>
+            <mat-error *ngIf="otpForm.get('otp').errors?.pattern">
+                Please Enter OTP
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary"  type="submit" (click)="onSubmit()">Verify</button><br><br>
+    <hr>
+    <p style="color: red;">{{err}}</p>
+    </form>
+    </mat-card-content>
+    </mat-card>

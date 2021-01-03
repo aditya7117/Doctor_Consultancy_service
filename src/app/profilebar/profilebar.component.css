@@ -1,0 +1,28 @@
+mat-card{
+    max-width: 650px;
+    
+    text-align: center;
+    max-height: auto;
+    
+  }
+  
+  .header{
+    text-align: center;
+  }
+  
+  .full-width{
+    width: 40%;
+  }
+
+  /* .area-width{
+      width: 60%;
+  } */
+  
+ 
+  .email-input{
+    padding-top: 10px;
+  }
+
+  .rid{
+      width: 70%;
+  }

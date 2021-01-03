@@ -1,0 +1,126 @@
+<mat-card>
+  <mat-card-content>
+    <hr>
+    <div class="header">
+      <h2>Patient Profile</h2>
+    </div>
+    <hr>
+    <form [formGroup]="patientprofileForm" >
+      <p style="color:red;">{{err}}</p>
+      <p style="color: green;">{{succupdate}}</p>
+      <p style="color: green;">{{succdelete}}</p>
+
+      <div>
+        <mat-form-field class="full-width" appearance="outline" >
+          <mat-label>Id</mat-label>
+          <input formControlName="id" matInput disabled readonly value={{id}}/>
+              
+                      
+        </mat-form-field>
+      </div>
+
+      <div class="email-input">
+        
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput readonly/>
+              
+                      
+        </mat-form-field>
+          
+        <mat-form-field class="full-width" appearance="fill"  style="margin-left: 10px;">
+         <mat-label>Age</mat-label>
+         <input formControlName="age" matInput readonly value={{profile[0].age}}/>
+          
+        </mat-form-field>
+                
+          </div>
+              <div class="email-input">
+                  <mat-form-field class="full-width" appearance="fill">
+                      <mat-label>Select User Type</mat-label>
+                      <mat-select matInput formControlName="userType" aria-disabled="true">
+                        <mat-option value="Doctor">Doctor</mat-option>
+                        <mat-option value="Patient">Patient</mat-option>
+                        
+                      </mat-select>
+                      
+                      
+                    </mat-form-field>
+                
+             
+
+              
+                <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+                  <mat-label>Address</mat-label>
+                  <input formControlName="address" matInput />
+                  <mat-error *ngIf="patientprofileForm.get('address').errors?.required">
+                    Required Address
+                  </mat-error>
+                             
+                </mat-form-field>
+              </div>
+
+
+    
+              <div class="email-input">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Phone Number</mat-label>
+                  <input formControlName="phone" matInput />
+                  
+                </mat-form-field>
+              
+        
+        <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+          <mat-label>Weight in Kg</mat-label>
+          <input formControlName="weight" matInput />
+          
+        </mat-form-field>
+      </div>
+      
+      <div class="email-input">
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Blood Group</mat-label>
+            <mat-select matInput required formControlName="bloodGroup" aria-disabled="true">
+              <mat-option value="A+">A+</mat-option>
+              <mat-option value="A-">A-</mat-option>
+              <mat-option value="B+">B+</mat-option>
+              <mat-option value="B-">B-</mat-option>
+              <mat-option value="O+">O+</mat-option>
+              <mat-option value="O-">O-</mat-option>
+              <mat-option value="AB+">AB+</mat-option>
+              <mat-option value="AB-">AB-</mat-option>
+              
+            </mat-select>
+            
+            
+          </mat-form-field>
+      
+   
+        
+      <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+        <mat-label>Regular Disease</mat-label>
+        <input formControlName="disease" matInput />
+       
+      </mat-form-field>
+    </div>
+
+    <div class="email-input">
+        
+      <mat-form-field class="area-width" appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" ></textarea>
+       
+      
+      </mat-form-field>
+    </div>
+
+    
+
+    
+    <button mat-raised-button color="primary" type="submit" (click)="updateProfile()">Update</button>
+    <hr>
+    <p style="color: red;">{{err}}</p>
+  </form>
+
+  </mat-card-content>
+</mat-card>

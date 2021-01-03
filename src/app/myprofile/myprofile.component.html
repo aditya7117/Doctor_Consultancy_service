@@ -1,0 +1,169 @@
+<mat-card>
+  <mat-card-content>
+    <hr>
+    <div class="header">
+      <h2>Doctor Profile</h2>
+    </div>
+    <hr>
+    <form [formGroup]="doctorprofileForm" >
+      
+    <p style="color:red;">{{err}}</p>
+    <p style="color: green;">{{succupdate}}</p>
+    <p style="color: green;">{{succdelete}}</p>
+
+      <div >
+        <mat-form-field class="rid" appearance="outline">
+          <mat-label>ID</mat-label>
+          <input formControlName="id" matInput readonly value={{id}}/>
+          </mat-form-field>
+      </div>
+
+      <div class="email-input">
+        
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Full Name</mat-label>
+          <input formControlName="name" matInput readonly/>
+              
+                      
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill" style="margin-left: 10px;">
+          <mat-label>Select User Type</mat-label>
+          <mat-select matInput required formControlName="userType" >
+            <mat-option value="Doctor">Doctor</mat-option>
+            <mat-option value="Patient">Patient</mat-option>
+            
+          </mat-select>
+          
+          
+        </mat-form-field>
+      </div>
+
+        <div class="email-input">  
+            <mat-form-field class="full-width" appearance="outline" >
+          <mat-label>Hospital Name</mat-label>
+          <input formControlName="hospital" matInput />
+              
+              </mat-form-field>
+
+
+              <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+                <mat-label>Department</mat-label>
+                <input formControlName="department" matInput readonly/>
+                    
+
+                  </mat-form-field>
+        </div>
+        <div class="email-input">
+
+
+                    <mat-form-field class="full-width" appearance="outline">
+                      <mat-label>Qualification</mat-label>
+                      <input formControlName="qualification" matInput />
+                          
+
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+                      <mat-label>Specialization</mat-label>
+                      <input formControlName="specialization" matInput readonly/>
+                          
+
+                    </mat-form-field>
+
+        </div>
+                    
+        <div class="email-input">      
+      
+                <mat-form-field class="full-width" appearance="outline" >
+                  <mat-label>Address</mat-label>
+                  <input formControlName="address" matInput readonly/>
+                  
+                             
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+                  <mat-label>Consultation Charges(In Rs.)</mat-label>
+                  <input formControlName="fee" matInput/>
+                      
+
+                </mat-form-field>
+
+        </div>
+
+        <div class="email-input">
+
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Account Number</mat-label>
+                  <input formControlName="account" matInput />
+                      
+
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+                  <mat-label>Account Holder Name</mat-label>
+                  <input formControlName="holder" matInput />
+                      
+
+                </mat-form-field>
+        </div>
+
+        <div class="email-input">
+
+
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>IFSC Code</mat-label>
+                  <input formControlName="ifsc" matInput />
+                      
+                      
+
+                </mat-form-field>
+
+
+                <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+                  <mat-label>Valid For(In Days)</mat-label>
+                  <input formControlName="feevalidity" matInput />
+                      
+
+                </mat-form-field>
+        </div>
+
+
+    
+        <div class="email-input">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Phone Number</mat-label>
+                  <input formControlName="phone" matInput readonly/>
+                  
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+                  <mat-label>Availability Days</mat-label>
+                  <input formControlName="scheduleday" placeholder="Mon-Sat" matInput/>
+              
+                </mat-form-field>
+
+        </div>
+        <div class="area-width">
+
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Availability Time</mat-label>
+                  <input formControlName="scheduletime" placeholder="8am-6pm" matInput />             
+
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+                  <mat-label>Maximum daily appointment</mat-label>
+                  <input formControlName="maxapp" matInput placeholder="5"/>
+
+                </mat-form-field>
+          </div>
+      
+      
+
+    <button mat-raised-button color="primary" type="submit" (click)="updateProfile()">Update</button>
+    <hr>
+    <p style="color: red;">{{err}}</p>
+  </form>
+
+  </mat-card-content>
+</mat-card>

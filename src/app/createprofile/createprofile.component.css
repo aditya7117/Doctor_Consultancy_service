@@ -1,0 +1,32 @@
+/* form{
+    min-width: 840px;
+    margin-left: 100px;
+} */
+
+mat-card{
+    max-width: 650px;
+    margin: 2em auto;
+    text-align: center;
+    max-height: auto;
+    
+  }
+  
+  .header{
+    text-align: center;
+  }
+  
+  .full-width{
+    width: 40%;
+  }
+
+  /* .area-width{
+      width: 60%;
+  } */
+  
+  .forgot-password{
+    padding-left: 0px;
+  }
+  
+  .email-input{
+    padding-top: 10px;
+  }

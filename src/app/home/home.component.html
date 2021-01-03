@@ -1,0 +1,55 @@
+<mat-card style="height: 60px;">
+    <mat-card-content>
+<button mat-raised-button color="warn" [matMenuTriggerFor]="menu" style="float: right;"> {{me.firstName}}<mat-icon>arrow_drop_down</mat-icon></button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item ><a (click)="logOut()">Logout</a></button>
+  <button mat-menu-item>LogoutAll</button>
+  <button mat-menu-item>Remove Account</button>
+</mat-menu>
+</mat-card-content>
+</mat-card>
+<hr>
+
+<div class="row" style="max-height: auto;margin-top: 10px;">
+    <div class="col-sm-3" style="background-color:lightcyan;max-height:suto;width: auto;" *ngIf="doctor; else patientfile">
+       <app-todayappointment></app-todayappointment>
+    </div>
+    <ng-template #patientfile>
+        <div class="col-sm-3" style="background-color:lightcyan;max-height:auto;width: auto;">
+            <app-doctorlist></app-doctorlist>
+        </div>  
+    </ng-template>
+    
+    <div class="col-sm-6" style="width: auto;max-height:auto;" *ngIf="doctor; else patient">
+        <app-myprofile></app-myprofile>
+    </div>
+    <ng-template #patient>
+        <div class="col-sm-6" style="width: auto;">
+            <app-profilebar></app-profilebar>
+        </div>  
+    </ng-template>
+
+    <div class="col-sm-3" style="background-color:lightcyan;max-height:500px;width: 500px;" *ngIf="doctor; else patientfilet">
+        <app-allappointment></app-allappointment>
+     </div>
+     <ng-template #patientfilet>
+         <div class="col-sm-3" style="background-color:lightcyan;max-height:500px;width: 500px;">
+            <app-activecall></app-activecall>
+         </div>  
+     </ng-template>
+
+</div>
+
+
+    <!--
+
+         <div class="col-sm-3" style="background-color:lightcyan;max-height:500px;width: 500px;" *ngIf="doctor; else patientfilet">
+            <app-allappointment></app-allappointment>
+         </div>
+         <ng-template #patientfilet>
+             <div class="col-sm-3" style="background-color:lightcyan;max-height:500px;width: 500px;">
+                <app-activecall></app-activecall>
+             </div>  
+         </ng-template>
+         
+     -->

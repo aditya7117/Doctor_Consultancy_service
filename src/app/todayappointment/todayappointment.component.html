@@ -1,0 +1,9 @@
+<h3 style="text-align: center;color: green;">Today Appointment</h3>
+<hr>
+<div id="c1" style="overflow: auto;max-height: 350px; background: blue">
+    <ul class="heroes">
+        <li *ngFor="let hero of Hero;let i=index;" (click)="getCalls(i)" style="height: 40px;background-color: white; margin-bottom: 5px;">
+          <p style="margin-left: 30px;cursor: pointer;">{{hero.name}} </p>
+        </li>
+      </ul>
+</div>

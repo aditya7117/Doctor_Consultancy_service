@@ -1,0 +1,320 @@
+<!-- <form [formGroup]="doctorprofileForm" class="text-center border border-light p-5" style="max-width: 400px;">
+
+  <p class="h4 mb-4"> Doctor Profile </p>
+
+  <div class="form-row mb-4">
+      <div class="col">
+          <input type="text" id="defaultRegisterFormName" class="form-control" formControlName="name" placeholder="Enter Your Name">
+      </div>
+      <div class="col">
+        <select formControlName="userType" class="form-control">
+          <option>Choose User Type</option>
+          <option value="Doctor">Doctor</option>
+          <option value="Patient">Patient</option>
+        </select>
+      </div>
+  </div>
+
+  <div class="form-row mb-4">
+    <div class="col">
+        <input type="text" id="defaultRegisterFormHospital" class="form-control" formControlName="hospital" placeholder="Enter Hospital">
+    </div>
+    <div class="col">
+        <input type="text" id="defaultRegisterFormDepartment" class="form-control" formControlName="department" placeholder="Enter Department">
+    </div>
+</div>
+
+<div class="form-row mb-4">
+  <div class="col">
+      <input type="text" id="defaultRegisterFormQualification" class="form-control" formControlName="qualification" placeholder="What's Your Qualification">
+  </div>
+  <div class="col">
+      <input type="text" id="defaultRegisterFormSpecialization" class="form-control" formControlName="specialization" placeholder="What's Your Specialization">
+  </div>
+</div>
+
+<div class="form-row mb-4">
+  <div class="col">
+      <input type="text" id="defaultRegisterFormAddress" class="form-control" formControlName="address" placeholder="Enter Your Address">
+  </div>
+  <div class="col">
+      <input type="number" id="defaultRegisterFormFee" class="form-control" formControlName="fee" placeholder="Enter Your Fee">
+  </div>
+</div>
+
+<div class="form-row mb-4">
+  <div class="col">
+      <input type="text" id="defaultRegisterFormAccount" class="form-control" formControlName="account" placeholder="Enter Your Account">
+  </div>
+  <div class="col">
+      <input type="text" id="defaultRegisterFormHolder" class="form-control" formControlName="holder" placeholder="Account Holder Name">
+  </div>
+</div>
+
+<div class="form-row mb-4">
+  <div class="col">
+      <input type="text" id="defaultRegisterFormIfsc" class="form-control" formControlName="ifsc" placeholder="Bank Ifsc">
+  </div>
+  <div class="col">
+      <input type="number" id="defaultRegisterFormFeevalidity" class="form-control" formControlName="feevalidity" placeholder="Fee Validity in day">
+  </div>
+</div>
+
+<div class="form-row mb-4">
+  <div class="col">
+      <input type="text" id="defaultRegisterFormPhone" class="form-control" formControlName="phone" placeholder="Enter Phone Number">
+  </div>
+  <div class="col">
+      <input type="text" id="defaultRegisterFormScheduleday" class="form-control" formControlName="scheduleday" placeholder="Schedule day Ex: Sun,Mon..">
+  </div>
+</div>
+
+<div class="form-row mb-4">
+  <div class="col">
+      <input type="text" id="defaultRegisterFormScheduletime" class="form-control" formControlName="scheduletime" placeholder="Schedule Time EX : 10AM-6PM">
+  </div>
+</div>
+
+
+
+  <button class="btn btn-info my-4 btn-block" type="submit" (click)="onSubmit()">Submit</button>
+
+  <hr>
+  <p style="color: red;">{{err}}</p>
+</form> -->
+
+
+<mat-card>
+  <mat-card-content>
+    <hr>
+    <div class="header">
+      <h2>Doctor Profile</h2>
+    </div>
+    <hr>
+    <form [formGroup]="doctorprofileForm" >
+
+      <div class="email-input">
+        
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Full Name</mat-label>
+          <input formControlName="name" matInput required/>
+              <mat-error *ngIf="doctorprofileForm.get('name').errors?.required">
+                Required Name 
+              </mat-error>
+              <mat-error *ngIf="doctorprofileForm.get('name').errors?.pattern">
+                Please Enter Only Alphabets
+              </mat-error>
+                      
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill" style="margin-left: 10px;">
+          <mat-label>Select User Type</mat-label>
+          <mat-select matInput required formControlName="userType">
+            <mat-option value="Doctor">Doctor</mat-option>
+            <mat-option value="Patient">Patient</mat-option>
+            
+          </mat-select>
+          
+          
+        </mat-form-field>
+      </div>
+
+        <div class="email-input">  
+            <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Hospital Name</mat-label>
+          <input formControlName="hospital" matInput required/>
+              <mat-error *ngIf="doctorprofileForm.get('hospital').errors?.required">
+                Required Hospital Name 
+              </mat-error>
+              <mat-error *ngIf="doctorprofileForm.get('hospital').errors?.pattern">
+                Please Enter Only Alphabets
+              </mat-error>
+              </mat-form-field>
+
+
+              <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+                <mat-label>Department</mat-label>
+                <input formControlName="department" matInput required/>
+                    <mat-error *ngIf="doctorprofileForm.get('department').errors?.required">
+                      Required Department 
+                    </mat-error>
+                    <mat-error *ngIf="doctorprofileForm.get('department').errors?.pattern">
+                      Please Enter Only Alphabets
+                    </mat-error>
+
+                  </mat-form-field>
+        </div>
+        <div class="email-input">
+
+
+                    <mat-form-field class="full-width" appearance="outline">
+                      <mat-label>Qualification</mat-label>
+                      <input formControlName="qualification" matInput required/>
+                          <mat-error *ngIf="doctorprofileForm.get('qualification').errors?.required">
+                            Required Qualification 
+                          </mat-error>
+                          <mat-error *ngIf="doctorprofileForm.get('qualification').errors?.pattern">
+                            Please Enter Only Alphabets
+                          </mat-error>
+
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="fill" style="margin-left: 10px;">
+                      <mat-label>Specialization</mat-label>
+                      <mat-select matInput required formControlName="specialization">
+                        <mat-option value="General Physician">General Physician</mat-option>
+                        <mat-option value="Gynecologist">Gynecologist</mat-option>
+                        <mat-option value="Psychiatrist">Psychiatrist</mat-option>
+                        <mat-option value="Neurologist">Neurologist</mat-option>
+                        <mat-option value="Skin">Skin</mat-option>
+                        <mat-option value="General Surgeon">General Surgeon</mat-option>
+                        <mat-option value="Ophthalmologist">Ophthalmologist</mat-option>
+                        <mat-option value="ENT">ENT</mat-option>
+                        
+                      </mat-select>
+                      
+                      
+                    </mat-form-field>
+
+        </div>
+                    
+        <div class="email-input">      
+      
+                <mat-form-field class="full-width" appearance="outline" >
+                  <mat-label>Address</mat-label>
+                  <input formControlName="address" matInput required/>
+                  <mat-error *ngIf="doctorprofileForm.get('address').errors?.required">
+                    Required Address
+                  </mat-error>
+                             
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+                  <mat-label>Consultation Charges(In Rs.)</mat-label>
+                  <input formControlName="fee" matInput required/>
+                      <mat-error *ngIf="doctorprofileForm.get('fee').errors?.required">
+                        Required Consultation Charges. 
+                      </mat-error>
+                      <mat-error *ngIf="doctorprofileForm.get('fee').errors?.pattern">
+                        Please Enter Only Number
+                      </mat-error>
+
+                </mat-form-field>
+
+        </div>
+
+        <div class="email-input">
+
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Account Number</mat-label>
+                  <input formControlName="account" matInput required/>
+                      <mat-error *ngIf="doctorprofileForm.get('account').errors?.required">
+                        Required Consultation Charges. 
+                      </mat-error>
+                      <mat-error *ngIf="doctorprofileForm.get('account').errors?.pattern">
+                        Please Enter Only Number
+                      </mat-error>
+
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+                  <mat-label>Account Holder Name</mat-label>
+                  <input formControlName="holder" matInput required/>
+                      <mat-error *ngIf="doctorprofileForm.get('holder').errors?.required">
+                        Required Account Holder Name. 
+                      </mat-error>
+                      <mat-error *ngIf="doctorprofileForm.get('holder').errors?.pattern">
+                        Please Enter Alphabets Only.
+                      </mat-error>
+
+                </mat-form-field>
+        </div>
+
+        <div class="email-input">
+
+
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>IFSC Code</mat-label>
+                  <input formControlName="ifsc" matInput required/>
+                      <mat-error *ngIf="doctorprofileForm.get('ifsc').errors?.required">
+                        Required Account Holder Name. 
+                      </mat-error>
+                      
+
+                </mat-form-field>
+
+
+                <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+                  <mat-label>Valid For(In Days)</mat-label>
+                  <input formControlName="feevalidity" matInput required/>
+                      <mat-error *ngIf="doctorprofileForm.get('feevalidity').errors?.required">
+                        Required Account Holder Name. 
+                      </mat-error>
+                      <mat-error *ngIf="doctorprofileForm.get('feevalidity').errors?.pattern">
+                        Please Enter Numbers Only.
+                      </mat-error>
+
+                </mat-form-field>
+        </div>
+
+
+    
+        <div class="email-input">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Phone Number</mat-label>
+                  <input formControlName="phone" matInput required/>
+                  <mat-error *ngIf="doctorprofileForm.get('phone').errors?.required">
+                    Required Phone Number.
+                  </mat-error>
+                  <mat-error *ngIf="doctorprofileForm.get('phone').errors?.pattern">
+                    Please Enter Valid number.
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+                  <mat-label>Availability Days</mat-label>
+                  <input formControlName="scheduleday" placeholder="Mon-Sat" matInput required/>
+                
+                      <mat-error *ngIf="doctorprofileForm.get('scheduleday').errors?.required">
+                        Required Availability Days. 
+                      </mat-error>
+                      <mat-error *ngIf="doctorprofileForm.get('scheduleday').errors?.pattern">
+                        Please Enter Alphabets Only.
+                      </mat-error>
+
+                </mat-form-field>
+
+        </div>
+        <div class="area-width">
+
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Availability Time</mat-label>
+                  <input formControlName="scheduletime" placeholder="8am-6pm" matInput required/>
+                      <mat-error *ngIf="doctorprofileForm.get('scheduletime').errors?.required">
+                        Required Availability Time. 
+                      </mat-error>
+                      
+
+                </mat-form-field>
+                <mat-form-field class="full-width" appearance="outline" style="margin-left: 10px;">
+                  <mat-label>Maximum daily appointment</mat-label>
+                  <input formControlName="maxapp" matInput required/>
+                      <mat-error *ngIf="doctorprofileForm.get('maxapp').errors?.required">
+                        Required Maximum daily appointment capacity
+                      </mat-error>
+                      <mat-error *ngIf="doctorprofileForm.get('maxapp').errors?.pattern">
+                        Please Enter Numbers Only.
+                      </mat-error>
+
+                </mat-form-field>
+          </div>
+      
+      
+
+    <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Submit</button>
+    <hr>
+    <p style="color: red;">{{err}}</p>
+  </form>
+
+  </mat-card-content>
+</mat-card>

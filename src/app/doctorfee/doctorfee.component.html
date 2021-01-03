@@ -1,0 +1,16 @@
+<form [formGroup]="feeForm" class="text-center border border-light p-5">
+
+    <p class="h4 mb-4">PROVIDE FEE DETAILS</p>
+
+    <input type="number" id="defaultRegisterFormEmail" class="form-control mb-4" formControlName="fee" placeholder="Enter Your Fee">
+    <input type="number" id="defaultRegisterFormPassword" class="form-control mb-4" formControlName="account" placeholder="Enter Account No.">
+    <input type="text" id="defaultRegisterFormPassword" class="form-control mb-4" formControlName="holder" placeholder="Enter Account Holder">
+    <input type="text" id="defaultRegisterFormPassword" class="form-control mb-4" formControlName="ifsc" placeholder="Enter Bank IFSC">
+    <input type="number" id="defaultRegisterFormPassword" class="form-control mb-4" formControlName="feevalidupto" placeholder="Fee Valid Upto Day">
+
+    <button class="btn btn-info my-4 btn-block" type="submit" (click)="onSubmit()">Submit</button>
+
+    <hr>
+    <p style="color: red;">{{err}}</p>
+</form>
+
